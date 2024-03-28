@@ -3,4 +3,5 @@
     <fullyQualifiedTypeName name="com.sun.tools.javac.code.Attribute.Class"/>
     <fullyQualifiedTypeName name="Class.Users"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="Classes.Users"/>
 </qualifiedTypeNameHistroy>

@@ -4,5 +4,5 @@
 /**
  * 
  */
-module BD_Java {
+module Thread {
 }

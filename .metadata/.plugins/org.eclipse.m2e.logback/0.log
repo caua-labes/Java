@@ -941,3 +941,4 @@ Caused by: java.lang.Exception: File not found: C:\Users\Dell\eclipse-workspace\
 2024-03-29 18:24:23,963 [Worker-108: Launching BancoDeDados] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\Dell\eclipse-workspace\BancoDeDados":
 2024-03-29 18:24:23,964 [Worker-108: Launching BancoDeDados] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always 
 2024-03-29 18:30:01,530 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-03-30 01:30:33,844 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

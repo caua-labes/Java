@@ -8,7 +8,7 @@ public class CrudUsers {
 	static LinkedList<Users> lista = new LinkedList<Users>();
     public static void main(String[] args) {
         boolean loop = true;
-        Scanner rd = new Scanner(System.in); // Move the Scanner creation outside the loop
+        Scanner rd = new Scanner(System.in);
         while (loop) {
             System.out.println("\n1 - Criar\n2 - Ver\n3 - Alterar\n4 - Deletar\n5 - Pegar por id");
                 int function = rd.nextInt();
@@ -20,7 +20,7 @@ public class CrudUsers {
 
                     case 2:
                         lerLista(lista);
-                        rd.nextLine(); // Consume the newline character after reading the integer
+                        rd.nextLine();
                         break;
 
                     case 3:

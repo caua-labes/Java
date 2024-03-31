@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			Connection con = ConectBd.criarConexao();
+		  Connection con = ConectBd.criarConexao();
 		  ResultSet res = con.createStatement().executeQuery("select * from public.categorias");
 		  Integer r = con.createStatement().executeUpdate("insert into categorias(nome) values ('Cereais');");
 		  System.out.println(r);

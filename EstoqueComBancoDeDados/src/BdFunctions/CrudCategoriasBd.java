@@ -9,7 +9,7 @@ import java.util.List;
 
 import Models.Categoria;
 
-public class CrudCategoriasBd {
+public class CrudCategoriasBd{
 	public static boolean insertCategoriaBd(Categoria categoria){
 		try {
 			Connection bd = BdConnect.criarConexao();

@@ -18,7 +18,7 @@
 	</section>
 	<section name="quick_assist_proposal_size">
 		<item key="size.x" value="381"/>
-		<item key="size.y" value="226"/>
+		<item key="size.y" value="1038"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>

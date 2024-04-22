@@ -64,11 +64,7 @@ public class CrudUsers {
 		return false;
 	}
 	public static void lerLista(LinkedList<Users> lista) {
-		int i = 1;
-		for (Users user : lista) {
-			System.out.print("\nPosição: "+i+"\nNome: " + user.getNome() + "\nSenha: "+ user.getSenha() + "\nEmail: " + user.getEmail());
-			i++;
-		}
+		lista.forEach(user -> System.out.print("\nNome: " + user.getNome() + "\nSenha: "+ user.getSenha() + "\nEmail: " + user.getEmail())); 
 	}
 	public static boolean alterarUser() {
 		Scanner rd = new Scanner(System.in);
@@ -115,9 +111,9 @@ public class CrudUsers {
 		Users user = new Users();
 		Thread threadLogin = new Thread(user);
 		System.out.print("Nome: ");
-		user.setNome(rd.next());
+		String nome = rd.next();
 		System.out.print("Senha: ");
-		user.setSenha(rd.next());
+		String senha = rd.next();
 		for(Users use : lista) {
 			if(use.getNome().equals(user.getNome()) && use.getSenha().equals(user.getSenha())){
 				user.setEmail(use.getEmail());;

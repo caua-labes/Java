@@ -36,9 +36,7 @@ public class Categoria implements Icrud {
 	public void ler(){
 		LinkedList<Categoria> lista = new LinkedList<Categoria>();
 		lista = CrudCategoriasBd.selectAll();
-		for(Categoria categoria : lista) {
-			System.out.println("Id: "+categoria.getId()+ " Nome: "+categoria.getNome());
-		}
+		lista.forEach(categoria -> System.out.println("Id: "+categoria.getId()+ " Nome: "+categoria.getNome()));
 	}
 	public void lerId(){
 		Scanner rd = new Scanner(System.in);

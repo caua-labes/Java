@@ -80,9 +80,7 @@ public class Produto implements Icrud {
     }
 	public void ler() {
 		LinkedList<Produto> lista = BdFunctions.CrudProdutosBd.selectProduto();
-		for(Produto produto : lista) {
-			System.out.println("\nId: " + produto.getId() + "\nDescrição: " + produto.getDescricao() + "\nValor Unitario: R$:" + produto.getValorUni() + "\nQuantidade: "+ produto.getQuantidade() + "\nCategoria: "+produto.getCategoria().getId()+ " " + produto.getCategoria().getNome());
-		}
+		lista.forEach(produto -> System.out.println("\nId: " + produto.getId() + "\nDescrição: " + produto.getDescricao() + "\nValor Unitario: R$:" + produto.getValorUni() + "\nQuantidade: "+ produto.getQuantidade() + "\nCategoria: "+produto.getCategoria().getId()+ " " + produto.getCategoria().getNome()));
 	}
 	@Override
 	public void alterar() {

@@ -17,12 +17,10 @@
     <fullyQualifiedTypeName name="BdFunctions.CrudCategoriasBd"/>
     <fullyQualifiedTypeName name="BdFunctions.CrudProdutosBd"/>
     <fullyQualifiedTypeName name="BdFunctions.BdConnect"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="Class.UserSalvo"/>
     <fullyQualifiedTypeName name="java.util.stream.Stream"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
@@ -37,4 +35,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="com.postgre.api.dto.CategoriaDto"/>
     <fullyQualifiedTypeName name="com.postgre.api.entidades.Categoria"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

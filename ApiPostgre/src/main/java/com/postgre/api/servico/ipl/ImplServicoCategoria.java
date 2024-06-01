@@ -43,6 +43,20 @@ public class ImplServicoCategoria implements ServicoCategoria{
 		CategoriaDto categoriaSelect = CategoriaMapeador.mapCategoriaDto(categoriaSe);
 		return categoriaSelect;
 	}
+	@Override
+	public CategoriaDto alterarCategoria(Long id,CategoriaDto categoriaAtualizada) {
+		Categoria categoriaAlt = repositorioCategoria.findById(id).orElseThrow(() -> new NaoEncontrado("Nenhuma categoria com este id"));
+		categoriaAlt.setNome(categoriaAtualizada.getNome());
+		Categoria categoriaSalva = repositorioCategoria.save(categoriaAlt);
+		return CategoriaMapeador.mapCategoriaDto(categoriaSalva);
+	}
+	@Override
+	public void deletarCategoria(Long id) {
+		Categoria categoriaDel = repositorioCategoria.findById(id).orElseThrow(()-> new NaoEncontrado("Não existe nenhuma categoria com este id"));
+		repositorioCategoria.deleteById(id);
+		
+	}
+	
 
 
 }

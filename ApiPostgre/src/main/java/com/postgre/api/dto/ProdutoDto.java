@@ -39,5 +39,11 @@ public class ProdutoDto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+	public ProdutoDto(Long id, String descricao, long quantidade, double valor, Categoria categoria) {
+		this.id = id;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+		this.valor = valor;
+		this.categoria = categoria;
+	}
 }

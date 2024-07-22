@@ -4,12 +4,9 @@ public class CategoriaDto {
     private Long id;
     private String nome;
 
-    public CategoriaDto() {
-    }
-
-    public CategoriaDto(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    public CategoriaDto(Long id,String nome) {
+    	this.id=id;
+    	this.nome=nome;
     }
 
     public Long getId() {

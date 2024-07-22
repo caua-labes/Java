@@ -53,7 +53,7 @@ public class ImplServicoCategoria implements ServicoCategoria{
 	@Override
 	public void deletarCategoria(Long id) {
 		Categoria categoriaDel = repositorioCategoria.findById(id).orElseThrow(()-> new NaoEncontrado("Não existe nenhuma categoria com este id"));
-		repositorioCategoria.deleteById(id);
+		repositorioCategoria.deleteById(categoriaDel.getId());
 		
 	}
 	

@@ -34,11 +34,14 @@
     <fullyQualifiedTypeName name="com.postgre.api.entidades.Categoria"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="com.postgre.api.excecoes.NaoEncontrado"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ForeignKey"/>
+    <fullyQualifiedTypeName name="com.postgre.api.mapeador.ProdutoMapeador"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.postgre.api.excecoes.NaoEncontrado"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.testcontainers.junit.jupiter.Testcontainers"/>
 </qualifiedTypeNameHistroy>

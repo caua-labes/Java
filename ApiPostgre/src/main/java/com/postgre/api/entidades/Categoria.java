@@ -10,16 +10,15 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Categorias")
+
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	@Column(name = "nome_categoria")
     private String nome;
-
-    public Categoria() {
-    }
-
+	
+	public Categoria() {};
     public Categoria(Long id, String nome) {
         this.id = id;
         this.nome = nome;

@@ -1,6 +1,7 @@
 package com.zipsh.zipshare.service.implservice;
 
 import com.zipsh.zipshare.dto.pageContentDto;
+import com.zipsh.zipshare.mapper.mapPage;
 import com.zipsh.zipshare.mapper.mapPageContent;
 import com.zipsh.zipshare.model.page;
 import com.zipsh.zipshare.model.pageContent;
@@ -29,16 +30,20 @@ public class implServicePageContent implements servicePageContent {
 
     @Override
     public pageContentDto getByIdPageContent(Long id) {
-        return null;
+        return mapPageContent.mapToDto(pageContentRepository.findById(id).orElseThrow());
+        //Falta a criação da exceção
     }
 
     @Override
     public pageContentDto putPageContent(Long id, pageContentDto pageContent) {
-        return null;
+        pageContent pageC = pageContentRepository.findById(id).orElseThrow();
+        pageC.setPage(mapPage.mapToEnt(pageContent.getPage()));
+        pageC.setContent(pageC.getContent());
+        return mapPageContent.mapToDto(pageContentRepository.save(pageC));
     }
 
     @Override
     public void delPageContent(Long id) {
-
+        pageContentRepository.deleteById(pageContentRepository.findById(id).orElseThrow().getId());
     }
 }

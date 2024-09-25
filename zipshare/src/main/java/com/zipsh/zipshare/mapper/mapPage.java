@@ -8,13 +8,15 @@ public class mapPage {
     public static page mapToEnt(pageDto dtoContent){
         return new page(
                 dtoContent.getId(),
-                dtoContent.getCodePage()
+                dtoContent.getCodePage(),
+                dtoContent.getDatePage()
         );
     }
     public static pageDto mapToDto(page content){
         return new pageDto(
                 content.getId(),
-                content.getCodePage()
+                content.getCodePage(),
+                content.getDatePage()
         );
     }
 }

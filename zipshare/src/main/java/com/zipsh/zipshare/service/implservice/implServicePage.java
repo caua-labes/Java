@@ -10,6 +10,7 @@ import com.zipsh.zipshare.service.servicePage;
 import org.hibernate.query.Page;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,8 +37,10 @@ public class implServicePage implements servicePage {
 
     @Override
     public pageDto getPageCode(String code) {
-        if(pageRepository.findByString(code).equals(null)){
-            return mapPage.mapToDto(pageRepository.save(new page(getPage().size(), code)));
+        Date datePage = new Date(System.currentTimeMillis());
+        if(pageRepository.findByString(code) == null){
+            int nextId = pageRepository.findAll().size() + 1;
+            return mapPage.mapToDto(pageRepository.save(new page(nextId, code, datePage)));
         }
         else{
             return mapPage.mapToDto(pageRepository.findByString(code));
@@ -47,6 +50,7 @@ public class implServicePage implements servicePage {
 
     @Override
     public void delPage(Long id) {
-
+        page page = pageRepository.findById(id).orElseThrow();
+        pageRepository.delete(page);
     }
 }

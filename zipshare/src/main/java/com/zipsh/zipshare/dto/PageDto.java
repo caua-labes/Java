@@ -2,12 +2,12 @@ package com.zipsh.zipshare.dto;
 
 import java.util.Date;
 
-public class pageDto {
+public class PageDto {
     private Long id;
     private String codePage;
     private Date datePage;
 
-    public pageDto(Long id, String codePage, Date datePage) {
+    public PageDto(Long id, String codePage, Date datePage) {
         this.id = id;
         this.codePage = codePage;
         this.setDatePage(datePage);

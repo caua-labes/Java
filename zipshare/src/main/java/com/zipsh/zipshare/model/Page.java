@@ -1,15 +1,24 @@
 package com.zipsh.zipshare.model;
 
+import jakarta.persistence.*;
+
+
 import java.util.Date;
 
-public class page {
+@Entity
+@Table(name = "page")
+public class Page {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codePage;
     //Esse tempo será usado para limpar a pagina depois de um mês
     private Date datePage;
 
-    public page(long id, String codePage,Date datePage) {
-        this.setId(id);
+    public Page(){
+    }
+
+    public Page(String codePage, Date datePage) {
         this.setCodePage(codePage);
         this.setDatePage(datePage);
     }

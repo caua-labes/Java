@@ -1,15 +1,26 @@
 package com.zipsh.zipshare.model;
 
-public class pageContent {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "pageContent")
+public class PageContent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private page page;
+    @ManyToOne
+    private Page page;
     private String content;
 
-    public pageContent(long id, page page, String content) {
+    public PageContent(long id, Page page, String content) {
         this.id = id;
         this.page = page;
         this.content = content;
     }
+
+    public PageContent(){
+    }
+
 
     public long getId() {
         return id;
@@ -19,11 +30,11 @@ public class pageContent {
         this.id = id;
     }
 
-    public com.zipsh.zipshare.model.page getPage() {
+    public Page getPage() {
         return page;
     }
 
-    public void setPage(com.zipsh.zipshare.model.page page) {
+    public void setPage(Page page) {
         this.page = page;
     }
 

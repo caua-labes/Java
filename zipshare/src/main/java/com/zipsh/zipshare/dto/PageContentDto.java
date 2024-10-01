@@ -1,20 +1,20 @@
 package com.zipsh.zipshare.dto;
 
-public class pageContentDto {
+public class PageContentDto {
     private long id;
 
-    public pageDto getPage() {
+    public PageDto getPage() {
         return page;
     }
 
-    public void setPage(pageDto page) {
+    public void setPage(PageDto page) {
         this.page = page;
     }
 
-    private pageDto page;
+    private PageDto page;
     private String content;
 
-    public pageContentDto(long id, String content, pageDto pageDto) {
+    public PageContentDto(long id, String content, PageDto pageDto) {
         this.id = id;
         this.content = content;
         this.page = pageDto;

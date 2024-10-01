@@ -1,26 +1,34 @@
 package com.zipsh.zipshare.controller;
 
-import com.zipsh.zipshare.dto.pageContentDto;
-import com.zipsh.zipshare.mapper.mapPageContent;
-import com.zipsh.zipshare.model.pageContent;
-import com.zipsh.zipshare.service.servicePageContent;
+import com.zipsh.zipshare.dto.PageContentDto;
+import com.zipsh.zipshare.mapper.MapPageContent;
+import com.zipsh.zipshare.model.PageContent;
+import com.zipsh.zipshare.service.ServicePageContent;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/zipsh.pageContent.zipshare")
+@RequestMapping("zipsh/pageContent")
 public class PageContentController {
 
-    private servicePageContent servicePageContent;
-    private PageContentController(servicePageContent service){
-        this.servicePageContent = service;
+    private final ServicePageContent serviceContent;
+
+    public PageContentController(ServicePageContent serviceContent){
+        this.serviceContent = serviceContent;
     }
     @PostMapping
-    public ResponseEntity<pageContentDto> postPageContent (@RequestBody pageContent content){
-        servicePageContent.postPageContent(mapPageContent.mapToDto(content))
+    public ResponseEntity<PageContentDto> postPageContent (@RequestBody PageContent content){
+        PageContentDto pageContentSaved = serviceContent.postPageContent(MapPageContent.mapToDto(content));
+        return new ResponseEntity<>(pageContentSaved, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PageContentDto>> getPageContent (@RequestBody Long pageId){
+        List<PageContentDto> listContent = serviceContent.getPageContent(pageId);
+        return new ResponseEntity<>(listContent, HttpStatus.OK);
     }
 
 

@@ -39,6 +39,7 @@ public class ImplServicePage implements ServicePage {
 
     @Override
     public PageDto getPageCode(String code) {
+        //trocar id por uuid
         Date datePage = new Date(System.currentTimeMillis());
         Page page = pageRepository.getBycodePage(code);
         if(page == null){

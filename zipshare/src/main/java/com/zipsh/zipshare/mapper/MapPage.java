@@ -7,6 +7,7 @@ public class MapPage {
 
     public static Page mapToEnt(PageDto dtoContent){
         return new Page(
+                dtoContent.getId(),
                 dtoContent.getCodePage(),
                 dtoContent.getDatePage()
         );

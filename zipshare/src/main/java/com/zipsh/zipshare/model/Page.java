@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "page")
 public class Page {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     private String codePage;
     //Esse tempo será usado para limpar a pagina depois de um mês
     private Date datePage;
@@ -18,16 +18,17 @@ public class Page {
     public Page(){
     }
 
-    public Page(String codePage, Date datePage) {
+    public Page(UUID id, String codePage, Date datePage) {
+        this.setId(id);
         this.setCodePage(codePage);
         this.setDatePage(datePage);
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

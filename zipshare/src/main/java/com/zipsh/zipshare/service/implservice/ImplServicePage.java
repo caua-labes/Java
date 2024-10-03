@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +26,7 @@ public class ImplServicePage implements ServicePage {
     @Override
     public PageDto postPage(PageDto pageDto) {
         Page page = MapPage.mapToEnt(pageDto);
+        page.setId(UUID.randomUUID());
         Page pageSave = pageRepository.save(page);
         return MapPage.mapToDto(pageSave);
     }
@@ -38,10 +40,10 @@ public class ImplServicePage implements ServicePage {
     @Override
     public PageDto getPageCode(String code) {
         Date datePage = new Date(System.currentTimeMillis());
-        Page page = pageRepository.findAll().stream().filter(pageF -> pageF.getCodePage().equals(code)).findAny().orElse(null);
-        if(Objects.isNull(page)){
-            page = new Page(code,datePage);
-            return MapPage.mapToDto(pageRepository.save(page));
+        Page page = pageRepository.getBycodePage(code);
+        if(page == null){
+            Page newPage = new Page(UUID.randomUUID(), code,datePage);
+            return MapPage.mapToDto(pageRepository.save(newPage));
         }
         return MapPage.mapToDto(page);
 

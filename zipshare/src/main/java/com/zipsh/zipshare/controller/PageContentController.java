@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("zipsh/pageContent")
+
 public class PageContentController {
 
     private final ServicePageContent serviceContent;

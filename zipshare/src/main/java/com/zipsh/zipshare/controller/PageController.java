@@ -26,8 +26,8 @@ public class PageController {
     }
 
     @PostMapping
-    public ResponseEntity<PageDto> postPage(@RequestBody Page page){
-        PageDto pageSave = service.postPage(MapPage.mapToDto(page));
+    public ResponseEntity<PageDto> postPage(@RequestBody PageDto pageDto){
+        PageDto pageSave = service.postPage(pageDto);
         return new ResponseEntity<>(pageSave, HttpStatus.CREATED);
     }
 

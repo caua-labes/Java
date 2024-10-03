@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface pageRepository extends JpaRepository<Page, Long> {
+    Page getBycodePage(String codePage);
 }

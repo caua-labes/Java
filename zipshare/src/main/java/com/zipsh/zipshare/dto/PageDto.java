@@ -1,23 +1,24 @@
 package com.zipsh.zipshare.dto;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class PageDto {
-    private Long id;
+    private UUID id;
     private String codePage;
     private Date datePage;
 
-    public PageDto(Long id, String codePage, Date datePage) {
+    public PageDto(UUID id, String codePage, Date datePage) {
         this.id = id;
         this.codePage = codePage;
         this.setDatePage(datePage);
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

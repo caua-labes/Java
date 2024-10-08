@@ -1,14 +1,17 @@
 package com.zipsh.zipshare.dto;
 
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
 public class PageDto {
     private UUID id;
     private String codePage;
-    private Date datePage;
+    private LocalDate datePage;
 
-    public PageDto(UUID id, String codePage, Date datePage) {
+    public PageDto(UUID id, String codePage, LocalDate datePage) {
         this.id = id;
         this.codePage = codePage;
         this.setDatePage(datePage);
@@ -30,11 +33,11 @@ public class PageDto {
         this.codePage = codePage;
     }
 
-    public Date getDatePage() {
+    public LocalDate getDatePage() {
         return datePage;
     }
 
-    public void setDatePage(Date datePage) {
+    public void setDatePage(LocalDate datePage) {
         this.datePage = datePage;
     }
 }

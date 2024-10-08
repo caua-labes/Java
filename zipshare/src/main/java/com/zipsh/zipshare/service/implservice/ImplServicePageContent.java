@@ -1,6 +1,7 @@
 package com.zipsh.zipshare.service.implservice;
 
 import com.zipsh.zipshare.dto.PageContentDto;
+import com.zipsh.zipshare.exceptions.NotFound;
 import com.zipsh.zipshare.mapper.MapPage;
 import com.zipsh.zipshare.mapper.MapPageContent;
 import com.zipsh.zipshare.model.PageContent;
@@ -30,13 +31,12 @@ public class ImplServicePageContent implements ServicePageContent {
 
     @Override
     public PageContentDto getByIdPageContent(Long id) {
-        return MapPageContent.mapToDto(pageContentRepository.findById(id).orElseThrow());
-        //Falta a criação da exceção
+        return MapPageContent.mapToDto(pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao pegar o conteudo por id")));
     }
 
     @Override
     public PageContentDto putPageContent(Long id, PageContentDto pageContent) {
-        PageContent pageC = pageContentRepository.findById(id).orElseThrow();
+        PageContent pageC = pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao alterar o conteudo"));
         pageC.setPage(MapPage.mapToEnt(pageContent.getPage()));
         pageC.setContent(pageC.getContent());
         return MapPageContent.mapToDto(pageContentRepository.save(pageC));
@@ -44,6 +44,6 @@ public class ImplServicePageContent implements ServicePageContent {
 
     @Override
     public void delPageContent(Long id) {
-        pageContentRepository.deleteById(pageContentRepository.findById(id).orElseThrow().getId());
+        pageContentRepository.deleteById(pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao deletar o conteudo da pagina")).getId());
     }
 }

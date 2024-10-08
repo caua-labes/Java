@@ -1,8 +1,10 @@
 package com.zipsh.zipshare.model;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,12 +15,12 @@ public class Page {
     private UUID id;
     private String codePage;
     //Esse tempo será usado para limpar a pagina depois de um mês
-    private Date datePage;
+    private LocalDate datePage;
 
     public Page(){
     }
 
-    public Page(UUID id, String codePage, Date datePage) {
+    public Page(UUID id, String codePage, LocalDate datePage) {
         this.setId(id);
         this.setCodePage(codePage);
         this.setDatePage(datePage);
@@ -40,11 +42,11 @@ public class Page {
         this.codePage = codePage;
     }
 
-    public Date getDatePage() {
+    public LocalDate getDatePage() {
         return datePage;
     }
 
-    public void setDatePage(Date datePage) {
+    public void setDatePage(LocalDate datePage) {
         this.datePage = datePage;
     }
 }

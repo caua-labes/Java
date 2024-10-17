@@ -27,9 +27,8 @@ public class ImplServicePage implements ServicePage {
     //Falta finalizar a logica e os metodos
     @Override
     public PageDto postPage(PageDto pageDto) {
-        Page page = MapPage.mapToEnt(pageDto);
-        page.setId(UUID.randomUUID());
-        Page pageSave = pageRepository.save(page);
+        pageDto.setId(UUID.randomUUID());
+        Page pageSave = pageRepository.save(MapPage.mapToEnt(pageDto));
         return MapPage.mapToDto(pageSave);
     }
 
@@ -42,7 +41,7 @@ public class ImplServicePage implements ServicePage {
     @Override
     public PageDto getPageCode(String code) {
         LocalDate datePage = LocalDate.now();
-        Page page = pageRepository.getBycodePage(code).orElseThrow(() -> new NotFound("Pagina não encontrada"));
+        Page page = pageRepository.getBycodePage(code);
         if(page == null){
             Page newPage = new Page(UUID.randomUUID(), code,datePage);
             return MapPage.mapToDto(pageRepository.save(newPage));

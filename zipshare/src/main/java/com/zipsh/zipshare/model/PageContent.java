@@ -2,17 +2,18 @@ package com.zipsh.zipshare.model;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "pageContent")
 public class PageContent {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private UUID id;
     @ManyToOne
     private Page page;
     private String content;
 
-    public PageContent(long id, Page page, String content) {
+    public PageContent(UUID id, Page page, String content) {
         this.id = id;
         this.page = page;
         this.content = content;
@@ -22,11 +23,11 @@ public class PageContent {
     }
 
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

@@ -10,7 +10,10 @@ import com.zipsh.zipshare.service.ServicePageContent;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static java.util.UUID.*;
 
 @Service
 public class ImplServicePageContent implements ServicePageContent {
@@ -20,22 +23,23 @@ public class ImplServicePageContent implements ServicePageContent {
     }
     @Override
     public PageContentDto postPageContent(PageContentDto pageContentDto) {
+        pageContentDto.setId(UUID.randomUUID());
         PageContent page = pageContentRepository.save(MapPageContent.mapToEnt(pageContentDto) );
         return MapPageContent.mapToDto(page);
     }
 
     @Override
-    public List<PageContentDto> getPageContent(Long pageId) {
+    public List<PageContentDto> getPageContent(UUID pageId) {
         return pageContentRepository.findAll().stream().filter(content -> content.getPage().getId().equals(pageId)).map((content) -> MapPageContent.mapToDto(content)).collect(Collectors.toList());
     }
 
     @Override
-    public PageContentDto getByIdPageContent(Long id) {
+    public PageContentDto getByIdPageContent(UUID id) {
         return MapPageContent.mapToDto(pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao pegar o conteudo por id")));
     }
 
     @Override
-    public PageContentDto putPageContent(Long id, PageContentDto pageContent) {
+    public PageContentDto putPageContent(UUID id, PageContentDto pageContent) {
         PageContent pageC = pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao alterar o conteudo"));
         pageC.setPage(MapPage.mapToEnt(pageContent.getPage()));
         pageC.setContent(pageC.getContent());
@@ -43,7 +47,8 @@ public class ImplServicePageContent implements ServicePageContent {
     }
 
     @Override
-    public void delPageContent(Long id) {
-        pageContentRepository.deleteById(pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao deletar o conteudo da pagina")).getId());
+    public void delPageContent(UUID id) {
+        PageContent pageContent = pageContentRepository.findById(id).orElseThrow(() -> new NotFound("Erro ao deletar o conteudo da pagina"));
+        pageContentRepository.delete(pageContent);
     }
 }

@@ -1,7 +1,9 @@
 package com.zipsh.zipshare.dto;
 
+import java.util.UUID;
+
 public class PageContentDto {
-    private long id;
+    private UUID id;
 
     public PageDto getPage() {
         return page;
@@ -14,17 +16,17 @@ public class PageContentDto {
     private PageDto page;
     private String content;
 
-    public PageContentDto(long id, String content, PageDto pageDto) {
+    public PageContentDto(UUID id, String content, PageDto pageDto) {
         this.id = id;
         this.content = content;
         this.page = pageDto;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

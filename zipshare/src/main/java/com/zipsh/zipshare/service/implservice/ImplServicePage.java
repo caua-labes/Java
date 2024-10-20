@@ -5,14 +5,11 @@ import com.zipsh.zipshare.dto.PageDto;
 import com.zipsh.zipshare.exceptions.NotFound;
 import com.zipsh.zipshare.mapper.MapPage;
 import com.zipsh.zipshare.model.Page;
-import com.zipsh.zipshare.repository.pageRepository;
+import com.zipsh.zipshare.repository.PageRepository;
 import com.zipsh.zipshare.service.ServicePage;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -20,15 +17,15 @@ import java.util.stream.Collectors;
 @Service
 public class ImplServicePage implements ServicePage {
 
-    private pageRepository pageRepository;
-    public ImplServicePage(pageRepository repository){
+    private PageRepository pageRepository;
+    public ImplServicePage(PageRepository repository){
         this.pageRepository = repository;
     }
     //Falta finalizar a logica e os metodos
     @Override
     public PageDto postPage(PageDto pageDto) {
-        pageDto.setId(UUID.randomUUID());
-        Page pageSave = pageRepository.save(MapPage.mapToEnt(pageDto));
+        Page newPage = new Page(UUID.randomUUID(),pageDto.getCodePage(),pageDto.getDatePage());
+        Page pageSave = pageRepository.save(newPage);
         return MapPage.mapToDto(pageSave);
     }
 
@@ -40,16 +37,21 @@ public class ImplServicePage implements ServicePage {
 
     @Override
     public PageDto getPageCode(String code) {
-        LocalDate datePage = LocalDate.now();
-        Page page = pageRepository.getBycodePage(code);
-        if(page == null){
-            Page newPage = new Page(UUID.randomUUID(), code,datePage);
-            return MapPage.mapToDto(pageRepository.save(newPage));
-        }
-        deletePageByDate(MapPage.mapToDto(page));
-        return MapPage.mapToDto(page);
+        if (code == null) {
+            throw new IllegalArgumentException("Código não pode ser null");
+        } else {
+            LocalDate datePage = LocalDate.now();
+            Page page = pageRepository.getBycodePage(code);
+            if (page == null) {
+                Page newPage = new Page(UUID.randomUUID(), code, datePage);
+                return MapPage.mapToDto(pageRepository.save(newPage));
+            }
+            deletePageByDate(MapPage.mapToDto(page));
+            return MapPage.mapToDto(page);
 
-        //return mapPage.mapToDto(pageRepository.findByString(code));
+            //return mapPage.mapToDto(pageRepository.findByString(code));
+
+        }
     }
 
     @Override

@@ -5,7 +5,7 @@ import com.zipsh.zipshare.exceptions.NotFound;
 import com.zipsh.zipshare.mapper.MapPage;
 import com.zipsh.zipshare.mapper.MapPageContent;
 import com.zipsh.zipshare.model.PageContent;
-import com.zipsh.zipshare.repository.pageContentRepository;
+import com.zipsh.zipshare.repository.PageContentRepository;
 import com.zipsh.zipshare.service.ServicePageContent;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +13,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static java.util.UUID.*;
-
 @Service
 public class ImplServicePageContent implements ServicePageContent {
-    private pageContentRepository pageContentRepository;
-    public ImplServicePageContent(pageContentRepository pageContentRepository){
+    private PageContentRepository pageContentRepository;
+    public ImplServicePageContent(PageContentRepository pageContentRepository){
         this.pageContentRepository = pageContentRepository;
     }
     @Override

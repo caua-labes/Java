@@ -2,6 +2,8 @@ package com.postgre.api.controladores;
 
 import java.util.List;
 
+import com.postgre.api.entidades.Produto;
+import com.postgre.api.mapeador.ProdutoMapeador;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,4 +27,11 @@ public class ProdutoControlador {
 		List<ProdutoDto> listaProdutos = servicoProduto.lerProdutos();
 		return new ResponseEntity<>(listaProdutos, HttpStatus.OK);
 	}
+
+	@PostMapping
+	public ResponseEntity<ProdutoDto> postProduto(@RequestBody ProdutoDto produto){
+		ProdutoDto produtoSalvo = servicoProduto.criarProduto(produto);
+		return new ResponseEntity<>(produtoSalvo, HttpStatus.CREATED);
+	}
+	//Não irei finalizar os outros metedos por questão de problemas com a IDE
 }
